@@ -15,6 +15,19 @@ const Portfolio = () => {
     const firstRow = [...logos, ...logos];
     const secondRow = [...logos.slice(4), ...logos.slice(0, 4), ...logos.slice(4), ...logos.slice(0, 4)];
 
+    const LogoRow = ({ items, direction }) => (
+    <div className='flex w-max gap-8' style={{ animation: `${direction === 'left' ? 'portfolio-scroll-left' : 'portfolio-scroll-right'} 28s linear infinite` }}>
+        {items.map((logo, index) => (
+            <div
+                key={`${logo.name}-${index}`}   
+                className='grid h-24 w-44 shrink-0 place-items-center rounded-2xl border border-white/80 bg-white/90 px-6 shadow-[0_12px_30px_rgba(42,91,140,0.12)] sm:h-28 sm:w-56'
+            >
+                <span className={logo.className}>{logo.name}</span>
+            </div>
+        ))}
+    </div>
+)
+
   return (
         <section id='portfolio' className='relative mt-24  py-16 sm:mt-32 sm:py-20'>
             <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(111,183,255,0.28),transparent_62%)]' />
@@ -31,17 +44,6 @@ const Portfolio = () => {
   )
 }
 
-const LogoRow = ({ items, direction }) => (
-    <div className='flex w-max gap-8' style={{ animation: `${direction === 'left' ? 'portfolio-scroll-left' : 'portfolio-scroll-right'} 28s linear infinite` }}>
-        {items.map((logo, index) => (
-            <div
-                key={`${logo.name}-${index}`}   
-                className='grid h-24 w-44 shrink-0 place-items-center rounded-2xl border border-white/80 bg-white/90 px-6 shadow-[0_12px_30px_rgba(42,91,140,0.12)] sm:h-28 sm:w-56'
-            >
-                <span className={logo.className}>{logo.name}</span>
-            </div>
-        ))}
-    </div>
-)
+
 
 export default Portfolio

@@ -7,7 +7,7 @@ import Portfolio from './Components/Pages/Portfolio';
 import Footer from './Components/Pages/Footer';
 import SixStepApproach from './Components/Pages/SixStepApproach';
 import Contact from './Components/Pages/Contact';
-
+import Showcase from './Components/Pages/Showcase';
 
 const App = () => { 
   return (
@@ -21,6 +21,7 @@ const App = () => {
       <Services/>
       <SixStepApproach/>
       <Portfolio/>
+      <Showcase/>
       <Contact/>
       <Footer/>
     </section>
